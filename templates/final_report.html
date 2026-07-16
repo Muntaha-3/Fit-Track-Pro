@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Final Health Report | Fit Track Pro</title>
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='final_report.css') }}">
+  <style>
+    .download-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 25px;
+    }
+    .next-btn {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+    .next-btn:hover {
+      background-color: #218838;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <nav>
+    <a href="{{ url_for('dashboard_bp.dashboard') }}" class="logo active">Fit Track Pro</a>
+    <a href="{{ url_for('dashboard_bp.dashboard') }}" class="logout-btn">Back to Dashboard</a>
+  </nav>
+</header>
+
+<div class="report-container">
+
+  <!-- TOP IMAGE -->
+
+  <h1>🏆 Your Final Health Summary</h1>
+  <p class="intro-text">Here's your complete health overview. Track your progress and stay motivated!</p>
+
+  <div class="report-grid">
+    <!-- BMI Card -->
+    <div class="report-card">
+      <h3>📊 Body Metrics</h3>
+      <div class="data-row"><span>BMI:</span> <strong>{{ data.bmi }}</strong></div>
+      <div class="data-row"><span>Weight:</span> <strong>{{ data.weight }} kg</strong></div>
+      <div class="data-row"><span>Height:</span> <strong>{{ data.height }} cm</strong></div>
+    </div>
+
+    <!-- Calories Card -->
+    <div class="report-card">
+      <h3>🔥 Calories</h3>
+      <div class="data-row"><span>Calories Consumed:</span> <strong>{{ data.calories_consumed }} kcal</strong></div>
+      <div class="data-row"><span>Calories Burnt:</span> <strong>{{ data.calories_burnt }} kcal</strong></div>
+    </div>
+
+    <!-- Water Intake Card -->
+    <div class="report-card">
+      <h3>💧 Water Intake</h3>
+      <div class="data-row"><span>Glasses Drank:</span> <strong>{{ data.water }}</strong></div>
+      <div class="data-row"><span>Daily Goal:</span> <strong>{{ data.water_goal }}</strong></div>
+    </div>
+
+    <!-- Activity Card -->
+    <div class="report-card">
+      <h3>🏃 Activity</h3>
+      <div class="data-row"><span>Steps Walked:</span> <strong>{{ data.steps }}</strong></div>
+      <div class="data-row"><span>Workout:</span> <strong>{{ data.workout }}</strong></div>
+    </div>
+
+    <!-- Meals Card -->
+    <div class="report-card">
+      <h3>🍽 Meals</h3>
+      <div class="data-row"><span>Breakfast:</span> <strong>{{ data.breakfast }}</strong></div>
+      <div class="data-row"><span>Lunch:</span> <strong>{{ data.lunch }}</strong></div>
+      <div class="data-row"><span>Dinner:</span> <strong>{{ data.dinner }}</strong></div>
+    </div>
+  </div>
+
+  <div class="download-container">
+    <button class="download-btn" onclick="window.print()">📄 Download PDF</button>
+    <a href="{{ url_for('feedback_bp.feedback') }}" class="next-btn">Give Feedback &rarr;</a>
+  </div>
+
+</div>
+
+</body>
+</html>

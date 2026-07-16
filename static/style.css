@@ -1,0 +1,220 @@
+/* --- 1. Reset & Global Styles --- */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f9ff; 
+    color: #333;
+}
+
+/* --- 2. Navigation Bar (Shared) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo { font-size: 24px; font-weight: bold; }
+.logo span { color: #2b7bcd; }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li { margin-left: 25px; }
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: #2b7bcd; }
+
+.login-nav { 
+    color: #2b7bcd !important; 
+    border: 1.5px solid #2b7bcd; 
+    padding: 7px 18px; 
+    border-radius: 5px; 
+}
+
+.signup-nav { 
+    background: #2b7bcd; 
+    color: white !important; 
+    padding: 8px 18px; 
+    border-radius: 5px; 
+}
+
+/* --- 3. Hero Section (Home Page) --- */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 80px 8%;
+    background: linear-gradient(135deg, #eef7ff 0%, #ffffff 100%);
+}
+
+.hero-content { flex: 1; }
+.hero-content h1 { font-size: 45px; margin-bottom: 20px; }
+.hero-content h1 span { color: #2b7bcd; }
+
+.hero-btns { display: flex; gap: 15px; margin-top: 20px; }
+
+.start-btn { 
+    background: #2b7bcd; 
+    color: white; 
+    padding: 14px 28px; 
+    text-decoration: none; 
+    border-radius: 30px; 
+    font-weight: bold; 
+}
+
+.secondary-btn { 
+    border: 2px solid #2b7bcd; 
+    color: #2b7bcd; 
+    padding: 12px 28px; 
+    text-decoration: none; 
+    border-radius: 30px; 
+    font-weight: bold; 
+}
+
+.hero-image { flex: 1; text-align: center; }
+.hero-image img { width: 80%; animation: float 3s ease-in-out infinite; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* --- 4. Feature Cards (Home Page) --- */
+.features { padding: 80px 8%; text-align: center; scroll-margin-top: 80px; }
+.section-title { font-size: 30px; margin-bottom: 40px; }
+.section-title span { color: #2b7bcd; }
+
+.feature-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.card:hover { transform: translateY(-10px); }
+.card img { width: 70px; margin-bottom: 15px; }
+.card-btn { color: #2b7bcd; text-decoration: none; font-weight: bold; }
+
+/* --- 5. Login & Signup Styling (Split Screen) --- */
+/* Ye class hum login aur signup page ki <body> par lagayenge */
+.login-body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eef7ff;
+}
+
+.login-container {
+    display: flex;
+    max-width: 900px;
+    width: 90%;
+    margin: 50px auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+}
+
+.login-image {
+    background: #2b7bcd;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.login-image img {
+    width: 100%;
+    max-width: 220px;
+    filter: brightness(0) invert(1);
+}
+
+.login-form {
+    flex: 1.2;
+    padding: 50px;
+}
+
+.login-form h2 { color: #2b7bcd; margin-bottom: 10px; }
+.login-form p { margin-bottom: 25px; color: #666; }
+
+.input-group { margin-bottom: 15px; text-align: left; }
+.input-group label { display: block; font-weight: bold; margin-bottom: 5px; color: #333; }
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus { border-color: #2b7bcd; }
+
+.btn {
+    width: 100%;
+    background: #2b7bcd;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn:hover { background: #1e5ba3; }
+
+.signup-text { margin-top: 20px; text-align: center; font-size: 14px; }
+.signup-text a { color: #2b7bcd; text-decoration: none; font-weight: bold; }
+
+/* --- 6. Footer --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #333;
+    color: white;
+    margin-top: 40px;
+}
+
+/* --- 7. Responsive Setup --- */
+@media (max-width: 768px) {
+    .navbar { padding: 15px 5%; }
+    .hero, .login-container { flex-direction: column; text-align: center; }
+    .nav-links { display: none; }
+    .hero-image { margin-top: 30px; }
+    .login-body { height: auto; padding: 40px 0; }
+}

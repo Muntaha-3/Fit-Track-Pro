@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Fit Track Pro</title>
+
+    <!-- THEME CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='thank_you.css') }}">
+</head>
+<body>
+
+<div class="thankyou-page">
+    <div class="thankyou-card">
+
+        <h1 class="title">Thank You 💙</h1>
+
+        <!-- BIG HEART -->
+        <div class="heart"></div>
+
+        <p class="main-text">
+            Thank you for taking the time to share your valuable feedback.
+            <br>
+            Your response helps us improve <strong>Fit Track Pro</strong>
+            and create a better health tracking experience.
+        </p>
+
+        <p class="sub-text">
+            Stay consistent, stay healthy, and keep moving towards your fitness goals 💪
+        </p>
+
+        <!-- FIXED: Direct relative link to bypass blueprint endpoint issues -->
+        <a href="/dashboard" class="back-btn">
+            Back to Dashboard
+        </a>
+
+    </div>
+</div>
+
+</body>
+</html>

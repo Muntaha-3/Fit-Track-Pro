@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup | Fitness Tracker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="login-body">
+
+  <div style="position: absolute; top: 20px; left: 20px;">
+    <a href="{{ url_for('main_bp.home') }}" style="text-decoration:none; color:#2b7bcd; font-weight:bold;">← Back to Home</a>
+  </div>
+
+  <div class="login-container">
+    <div class="login-image">
+      <img src="https://cdn-icons-png.flaticon.com/512/2966/2966481.png" alt="Fitness Tracker">
+    </div>
+
+    <div class="login-form">
+      <h2>Create Your Account</h2>
+      <p>Join us to track your BMI, calories and water intake.</p>
+
+      <form method="POST">
+        <div class="input-group">
+          <label>Full Name</label>
+          <input type="text" name="full_name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="input-group">
+          <label>Email Address</label>
+          <input type="email" name="email" placeholder="example@gmail.com" required>
+        </div>
+
+        <div class="input-group" style="display: flex; gap: 10px;">
+          <div style="flex: 1;">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter password" required>
+          </div>
+          <div style="flex: 1;">
+            <label>Confirm</label>
+            <input type="password" name="confirm_password" placeholder="Re-enter" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn" style="margin-top:10px;">Sign Up</button>
+      </form>
+
+      <p class="signup-text">Already have an account? 
+        <a href="{{ url_for('auth_bp.login') }}">Login here</a>
+      </p>
+
+      {% if error %}
+        <h3 style="color:red; margin-top:15px; text-align:center;">{{ error }}</h3>
+      {% endif %}
+      {% if success %}
+        <h3 style="color:green; margin-top:15px; text-align:center;">{{ success }}</h3>
+      {% endif %}
+
+    </div>
+  </div>
+
+</body>
+</html>

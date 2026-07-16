@@ -1,0 +1,270 @@
+body {
+  background-color: #f4f7f6;
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+}
+.navbar {
+  background: #2b7bcd;
+  height: 70px;
+  padding: 0 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: wrap; /* allow wrapping on small screens */
+}
+
+.navbar .logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: auto;
+}
+
+.navbar nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.navbar nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.calorie-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* Header Styling */
+.calorie-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 20px 30px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 26px;
+  color: #2b7bcd;
+}
+
+.header-text p {
+  margin: 5px 0 0 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.back-btn {
+  text-decoration: none;
+  color: #2b7bcd;
+  border: 2px solid #2b7bcd;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* Layout Grid */
+.calorie-content {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 20px;
+}
+
+.calorie-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Inputs */
+.input-field {
+  margin-bottom: 15px;
+}
+
+.input-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+.input-field input,
+.input-field select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Button */
+.calculate-btn {
+  width: 100%;
+  padding: 15px;
+  background: #2b7bcd;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.calculate-btn:hover {
+  background: #1e5ba3;
+}
+
+/* Result Box */
+.result-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fdfdfd;
+}
+
+.calorie-value-box {
+  margin-bottom: 20px;
+}
+
+.calorie-value-box h2 {
+  font-size: 48px;
+  color: #2b7bcd;
+  margin: 0;
+}
+
+.calorie-value-box span {
+  color: #666;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* Message Box */
+.message-box {
+  background: #f0f7ff;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 4px solid #2b7bcd;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+  margin-top: 15px;
+  text-align: left;
+}
+
+/* Animation */
+.calorie-card {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =============================== */
+/* RESPONSIVE FIXES (IMPORTANT)    */
+/* =============================== */
+
+/* Tablets */
+@media (max-width: 900px) {
+  .calorie-container {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  .calorie-content {
+    grid-template-columns: 1fr;
+  }
+
+  .calorie-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .back-btn {
+    align-self: flex-start;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 600px) {
+
+  .header-text h1 {
+    font-size: 22px;
+  }
+
+  .header-text p {
+    font-size: 13px;
+  }
+
+  .back-btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .input-row {
+    grid-template-columns: 1fr;
+  }
+
+  .calorie-card {
+    padding: 20px;
+  }
+
+  .calculate-btn {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .calorie-value-box h2 {
+    font-size: 40px;
+  }
+
+  .message-box {
+    font-size: 13.5px;
+  }
+}

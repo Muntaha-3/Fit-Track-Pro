@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Calorie Calculator</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='dashboard.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='calorie-style.css') }}"
+    />
+    <style>
+      /* Back to Dashboard Button */
+      .back-btn-container {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin: 15px 25px 0 0;
+      }
+      .back-btn, .next-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: 500;
+      }
+      .back-btn {
+        background: #007bff; /* Theme color */
+        color: white;
+      }
+      .back-btn:hover {
+        background: #0056b3;
+        transform: translateY(-1px);
+      }
+      .next-btn {
+        background: #28a745;
+        color: white;
+      }
+      .next-btn:hover {
+        background: #218838;
+        transform: translateY(-1px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <nav>
+        <a href="{{ url_for('dashboard_bp.dashboard') }}" class="logo active">
+          Fit Track Pro
+        </a>
+
+        <a href="{{ url_for('main_bp.home') }}" class="logout-btn">Logout</a>
+      </nav>
+    </header>
+
+    <!-- Navigation Buttons Row -->
+    <div class="back-btn-container">
+      <a href="{{ url_for('dashboard_bp.dashboard') }}" style="text-decoration: none;">
+        <button class="back-btn">Back to Dashboard</button>
+      </a>
+      <a href="{{ url_for('water_intakes_bp.water_intake') }}" style="text-decoration: none;">
+        <span class="next-btn">Next: Water Intake &rarr;</span>
+      </a>
+    </div>
+
+    <div class="calorie-container">
+      <header class="calorie-header">
+        <div class="header-text">
+          <h1>Calorie Calculator</h1>
+          <p>Calculate your daily energy needs accurately</p>
+        </div>
+      </header>
+
+      <div class="calorie-content">
+        <div class="calorie-card">
+          <form method="POST">
+            <div class="input-row">
+              <div class="input-field">
+                <label>Age</label>
+                <input type="number" name="age" placeholder="25" required />
+              </div>
+              <div class="input-field">
+                <label>Gender</label>
+                <select name="gender">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-row">
+              <div class="input-field">
+                <label>Weight (kg)</label>
+                <input
+                  type="number"
+                  name="weight"
+                  placeholder="e.g. 70"
+                  required
+                />
+              </div>
+              <div class="input-field">
+                <label>Height (cm)</label>
+                <input
+                  type="number"
+                  name="height"
+                  placeholder="e.g. 175"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="input-field">
+              <label>Daily Stress Level</label>
+              <select name="stress_level">
+                <option value="1.2">Low (Sedentary)</option>
+                <option value="1.375">Moderate</option>
+                <option value="1.55">High</option>
+              </select>
+            </div>
+
+            <div class="input-field">
+              <label>Medical Condition</label>
+              <select name="medical_condition">
+                <option value="none">None</option>
+                <option value="Diabetes">Diabetes</option>
+                <option value="Thyroid">Thyroid Issue</option>
+                <option value="Heart">Heart Condition</option>
+              </select>
+            </div>
+
+            <div class="input-row">
+              <div class="input-field">
+                <label>Health Goal</label>
+                <select name="health_goal">
+                  <option value="maintain">Maintain Weight</option>
+                  <option value="loss">Weight Loss</option>
+                  <option value="gain">Weight Gain</option>
+                </select>
+              </div>
+              <div class="input-field">
+                <label>Sleep Duration</label>
+                <select name="sleep_duration">
+                  <option value="7-9">7–9 Hours</option>
+                  <option value="5-7">5–7 Hours</option>
+                  <option value="below-5">Below 5 Hours</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="calculate-btn" type="submit">Calculate Now</button>
+          </form>
+        </div>
+        <div class="calorie-card result-card">
+          <div class="calorie-value-box">
+            <h2>{{ calories if calories else 0 }}</h2>
+            <span>Calories Per Day</span>
+          </div>
+
+          <div id="health-message" class="message-box">
+            {{ message if message else "Enter your details to see your
+            personalized calorie target." }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

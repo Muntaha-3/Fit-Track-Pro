@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Fitness Tracker</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="login-body">
+
+<!-- ✅ FIXED BACK BUTTON -->
+<div style="position: absolute; top: 20px; left: 20px">
+  <a href="{{ url_for('auth_bp.signup') }}"
+     style="text-decoration:none; color:#2b7bcd; font-weight:bold;">
+    ← Back to Home
+  </a>
+</div>
+
+<div class="login-container">
+
+  <div class="login-image">
+    <img src="https://cdn-icons-png.flaticon.com/512/2966/2966481.png" alt="Fitness Icon">
+  </div>
+
+  <div class="login-form">
+    <h2>Welcome Back!</h2>
+    <p>Login to track your BMI, calories, and water intake.</p>
+
+    <!-- FLASK FORM -->
+    <form method="POST">
+
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" class="btn">Login</button>
+    </form>
+
+    <p class="signup-text">
+      Don't have an account?
+      <a href="{{ url_for('auth_bp.signup') }}">Sign Up</a>
+    </p>
+
+    {% if error %}
+      <p style="color:red; margin-top:10px;">{{ error }}</p>
+    {% endif %}
+
+  </div>
+</div>
+
+</body>
+</html>

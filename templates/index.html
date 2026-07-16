@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Fit Track Pro</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .welcome-container {
+      text-align: center;
+      padding: 100px 20px;
+      background: #f8f9fa;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .welcome-title {
+      font-size: 3rem;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+    .welcome-subtitle {
+      font-size: 1.3rem;
+      color: #555;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+    .auth-buttons .btn {
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      text-decoration: none;
+      border-radius: 25px;
+      margin: 0 10px;
+      display: inline-block;
+      transition: 0.3s;
+    }
+    .btn-login {
+      background: #007bff;
+      color: white;
+    }
+    .btn-signup {
+      background: #28a745;
+      color: white;
+    }
+    .auth-buttons .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <nav>
+    <a href="{{ url_for('main_bp.home') }}" class="logo">
+      <i class="fa-solid fa-heart-pulse"></i> Fit Track Pro
+    </a>
+    <div class="nav-links">
+      <a href="{{ url_for('auth_bp.login') }}">Sign In</a>
+      <a href="{{ url_for('auth_bp.signup') }}">Sign Up</a>
+    </div>
+  </nav>
+</header>
+
+<div class="welcome-container">
+  <h1 class="welcome-title">Transform Your Fitness Journey</h1>
+  <p class="welcome-subtitle">Track your daily BMI, monitor calorie intake, log your activities, plan healthy meals, and see your real-time progress through interactive charts.</p>
+  
+  <div class="auth-buttons">
+    <a href="{{ url_for('auth_bp.login') }}" class="btn btn-login">Sign In / Login</a>
+    <a href="{{ url_for('auth_bp.signup') }}" class="btn btn-signup">Create Account</a>
+  </div>
+</div>
+
+</body>
+</html>

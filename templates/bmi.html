@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced BMI Calculator</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='dashboard.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='bmi-style.css') }}"
+    />
+    <style>
+      /* Back to Dashboard & Next Button Row */
+      .back-btn-container {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin: 15px 25px 0 0;
+      }
+      .back-btn, .next-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: 500;
+      }
+      .back-btn {
+        background: #007bff; /* Theme color */
+        color: white;
+      }
+      .back-btn:hover {
+        background: #0056b3;
+        transform: translateY(-1px);
+      }
+      .next-btn {
+        background: #28a745; /* Success Green for progress */
+        color: white;
+      }
+      .next-btn:hover {
+        background: #218838;
+        transform: translateY(-1px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <nav>
+        <a href="{{ url_for('dashboard_bp.dashboard') }}" class="logo active">
+          Fit Track Pro
+        </a>
+
+        <a href="{{ url_for('main_bp.home') }}" class="logout-btn">Logout</a>
+      </nav>
+    </header>
+
+    <div class="bmi-container">
+      <header class="bmi-header">
+        <div class="header-text">
+          <h1>BMI Calculator</h1>
+          <p>Track your Body Mass Index and Health Status</p>
+        </div>
+      </header>
+
+      <!-- Navigation Buttons Row -->
+      <div class="back-btn-container">
+        <a href="{{ url_for('dashboard_bp.dashboard') }}" style="text-decoration: none;">
+          <button class="back-btn">Back to Dashboard</button>
+        </a>
+        <a href="{{ url_for('calorie_bp.calorie_calculator') }}" style="text-decoration: none;">
+          <span class="next-btn">Next: Calories &rarr;</span>
+        </a>
+      </div>
+
+      <form method="POST">
+        <div class="bmi-content">
+          
+          <div class="bmi-card input-card">
+            
+            <div class="gender-selection">
+              <label class="gender-btn">
+                <input type="radio" name="gender" value="Male" {% if gender ==
+                "Male" %}checked{% endif %}> Male
+              </label>
+
+              <label class="gender-btn">
+                <input type="radio" name="gender" value="Female" {% if gender ==
+                "Female" %}checked{% endif %}> Female
+              </label>
+            </div>
+
+            
+            <div class="input-field">
+              <label>Age</label>
+              <input type="number" name="age" placeholder="25" />
+            </div>
+
+            
+            <div class="input-field">
+              <label>Weight (kg)</label>
+              <input
+                type="number"
+                name="weight"
+                placeholder="e.g. 70"
+                required
+              />
+            </div>
+
+            
+            <div class="input-field">
+              <label>Height (cm)</label>
+              <input
+                type="number"
+                name="height"
+                placeholder="e.g. 175"
+                required
+              />
+            </div>
+
+            <button class="calculate-btn" type="submit">Calculate Now</button>
+          </div>
+
+          
+          <div class="bmi-card result-card">
+            <div class="bmi-value-box">
+              <h2>{{ bmi if bmi else "0.0" }}</h2>
+              <span>Your BMI Score</span>
+            </div>
+
+            <div class="status-indicator">
+              <p>{{ status if status else "Enter details to see result" }}</p>
+
+              
+              <div class="progress-bar-container"></div>
+            </div>
+
+            <div class="bmi-details">
+              <p>
+                {{ advice if advice else "Maintaining a healthy weight reduces
+                health risks." }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

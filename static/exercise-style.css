@@ -1,0 +1,235 @@
+body {
+    background-color: #f0f4f8;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+}
+
+.bmi-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+.navbar {
+  background: #2b7bcd;
+  height: 70px;
+  padding: 0 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: wrap; /* allow wrapping on small screens */
+}
+
+.navbar .logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: auto;
+}
+
+.navbar nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.navbar nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Header Styling */
+.bmi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.header-text h1 { 
+    color: #007bff; 
+    margin: 0; 
+    font-size: 24px;
+}
+
+.header-text p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.back-btn {
+    text-decoration: none;
+    color: #007bff;
+    border: 2px solid #007bff;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.back-btn:hover { 
+    background: #007bff; 
+    color: white; 
+}
+
+/* Grid Layout */
+.bmi-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 20px;
+}
+
+.bmi-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* Inputs & Select Fields */
+.input-field { 
+    margin-bottom: 20px; 
+}
+
+.input-field label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-weight: 600; 
+    color: #333;
+}
+
+.input-field input, .input-field select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.input-field input:focus, .input-field select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Buttons */
+.calculate-btn {
+    width: 100%;
+    padding: 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.calculate-btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Result Card */
+.result-card { 
+    text-align: center; 
+}
+
+.bmi-value-box h2 { 
+    font-size: 50px; 
+    color: #007bff; 
+    margin: 0; 
+}
+
+.bmi-value-box span { 
+    display: block; 
+    font-size: 14px; 
+    color: #555; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    margin-top: 5px;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+    height: 12px;
+    background: #e9ecef;
+    border-radius: 6px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.progress-pointer {
+    width: 20px;
+    height: 20px;
+    background: #007bff;
+    border-radius: 50%;
+    position: absolute;
+    top: -4px;
+    left: 0%;
+    transition: left 0.5s ease-in-out;
+    border: 3px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Advice Box */
+.bmi-details {
+    background: #e7f3ff;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #007bff;
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+    .bmi-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .bmi-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .calculate-btn { font-size: 15px; }
+    .bmi-value-box h2 { font-size: 42px; }
+}
+
+@media (max-width: 480px) {
+    .input-field input, .input-field select { 
+        font-size: 14px; 
+        padding: 10px; 
+    }
+    .bmi-value-box h2 { font-size: 36px; }
+    .back-btn { padding: 6px 14px; font-size: 14px; }
+}

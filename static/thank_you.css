@@ -1,0 +1,106 @@
+/* ===== PAGE BACKGROUND ===== */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #2b7bcd, #28a745);
+    height: 100vh;
+}
+
+/* ===== CENTER PAGE ===== */
+.thankyou-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* ===== CARD ===== */
+.thankyou-card {
+    background: white;
+    padding: 45px 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 520px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== TITLE ===== */
+.title {
+    color: #2b7bcd;
+    font-size: 34px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* ===== HEART ===== */
+.heart {
+    width: 80px;
+    height: 80px;
+    background: #ff4d6d;
+    position: relative;
+    transform: rotate(-45deg);
+    margin: 30px auto;
+    animation: heartbeat 1.4s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 80px;
+    height: 80px;
+    background: #ff4d6d;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -40px;
+    left: 0;
+}
+
+.heart::after {
+    left: 40px;
+    top: 0;
+}
+
+/* HEART ANIMATION */
+@keyframes heartbeat {
+    0% { transform: scale(1) rotate(-45deg); }
+    25% { transform: scale(1.15) rotate(-45deg); }
+    50% { transform: scale(1) rotate(-45deg); }
+    75% { transform: scale(1.15) rotate(-45deg); }
+    100% { transform: scale(1) rotate(-45deg); }
+}
+
+/* ===== TEXT ===== */
+.main-text {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.sub-text {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* ===== BUTTON ===== */
+.back-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #2b7bcd;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #1f5fa3;
+    transform: translateY(-2px);
+}

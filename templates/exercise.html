@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity & Step Tracker</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='exercise-style.css') }}"
+    />
+    <style>
+      .nav-row {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin: 15px 25px;
+      }
+      .action-btn, .next-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: 500;
+      }
+      .action-btn {
+        background: #007bff;
+        color: white;
+      }
+      .action-btn:hover {
+        background: #0056b3;
+      }
+      .next-btn {
+        background: #28a745;
+        color: white;
+      }
+      .next-btn:hover {
+        background: #218838;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <nav>
+        <a href="{{ url_for('dashboard_bp.dashboard') }}" class="logo active">
+          Fit Track Pro
+        </a>
+
+        <a href="{{ url_for('main_bp.home') }}" class="logout-btn">Logout</a>
+      </nav>
+    </header>
+
+    <!-- Navigation Buttons Row -->
+    <div class="nav-row">
+      <a href="{{ url_for('dashboard_bp.dashboard') }}">
+        <button class="action-btn">Back to Dashboard</button>
+      </a>
+      <a href="{{ url_for('meal_planner_bp.meal_planner') }}">
+        <button class="next-btn">Next: Meal Planner &rarr;</button>
+      </a>
+    </div>
+
+    <div class="bmi-container">
+      <header class="bmi-header">
+        <div class="header-text">
+          <h1>Activity Tracker 🏃‍♂️</h1>
+          <p>Track your daily steps and exercise energy</p>
+        </div>
+      </header>
+
+      <div class="bmi-content">
+        <div class="bmi-card">
+          <form method="POST">
+            <div class="input-field">
+              <label>Daily Steps</label>
+              <input
+                type="number"
+                name="steps"
+                placeholder="e.g. 8000"
+                required
+              />
+            </div>
+
+            <div class="input-field">
+              <label>Workout Type</label>
+              <select name="workout_type">
+                <option value="0.5">Walking (Light)</option>
+                <option value="1">Jogging (Moderate)</option>
+                <option value="1.5">Gym/Running (Heavy)</option>
+              </select>
+            </div>
+
+            <div class="input-field">
+              <label>Duration (Minutes)</label>
+              <input
+                type="number"
+                name="duration"
+                placeholder="e.g. 30"
+                required
+              />
+            </div>
+
+            <button class="calculate-btn" type="submit">Log Progress</button>
+          </form>
+        </div>
+
+        <!-- Result Card -->
+        <div class="bmi-card result-card">
+          <div class="bmi-value-box">
+            <h2>{{ points }}</h2>
+            <span>Activity Points</span>
+          </div>
+
+          <div class="status-indicator">
+            <p>{{ rank }}</p>
+            <div class="progress-bar-container">
+              <div
+                class="progress-pointer"
+                style="left: '{{ pointer_percentage|default(0) }}%';"
+              ></div>
+            </div>
+          </div>
+
+          <div class="bmi-details">
+            <p>{{ advice }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback | Health & Fitness Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='feedback.css') }}">
+    <style>
+        /* Back to Dashboard Button Row */
+        .back-btn-container {
+            display: flex;
+            justify-content: flex-end; /* Right side */
+            gap: 10px;
+            margin: 15px 25px 0 0;
+        }
+
+        .back-btn {
+            background-color: #2b7bcd; /* Theme blue */
+            color: white;
+            border: none;
+            padding: 7px 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #1a5a99;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back to Dashboard Button -->
+    <div class="back-btn-container">
+        <a href="{{ url_for('dashboard_bp.dashboard') }}">
+            <button class="back-btn">Back to Dashboard</button>
+        </a>
+    </div>
+
+    <div class="feedback-container">
+        <h2>Give Your Feedback</h2>
+        <form method="POST" action="{{ url_for('feedback_bp.feedback') }}">
+            <div class="input-group">
+                <label>Name:</label>
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="input-group">
+                <label>Email:</label>
+                <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="input-group">
+                <label>Feedback:</label>
+                <textarea name="feedback" rows="5" placeholder="Write your feedback here" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit Feedback</button>
+        </form>
+    </div>
+</body>
+</html>
