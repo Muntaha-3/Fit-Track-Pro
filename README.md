@@ -56,5 +56,5 @@ pip install flask matplotlib
    git clone [https://github.com/Muntaha-3/Fit-Track-Pro.git](https://github.com/Muntaha-3/Fit-Track-Pro.git)
    cd Fit-Track-Pro
 
-   ##  Contributors
+#  Contributors
 * **Sidra tul Muntaha** ([@Muntaha-3](https://github.com/Muntaha-3)) — Department of Data Sciences, UET Lahore.
