@@ -48,13 +48,15 @@ Follow these simple steps to run the application on your computer using VS Code:
 
 ### 3. Install Required Libraries
 Before running the app, you need to install Flask and Matplotlib. Run this command in your VS Code terminal and press **Enter**:
+
 ```bash
 pip install flask matplotlib
+### Step 2: Push the fix to GitHub
+Once you save the file in VS Code, run these quick commands in your terminal to update your repository:
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/Muntaha-3/Fit-Track-Pro.git](https://github.com/Muntaha-3/Fit-Track-Pro.git)
-   cd Fit-Track-Pro
-
-#  Contributors
-* **Sidra tul Muntaha** ([@Muntaha-3](https://github.com/Muntaha-3)) — Department of Data Sciences, UET Lahore.
+```bash
+git add README.md
+git commit -m "Fix README formatting and separate contributors"
+git push origin main
+###4. Contributor
+Sidratul Muntaha(@Muntaha-3)
