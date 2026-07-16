@@ -17,7 +17,7 @@ This project bridges the gap between backend algorithm design and interactive fr
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 * **Frontend:** HTML5, CSS3, JavaScript (interactive client-side verification), FontAwesome Icons.
 * **Backend:** Python 3.x, Flask Web Framework.
 * **Libraries:** Matplotlib (Thread-safe 'Agg' backend visualization), OS, Session.
